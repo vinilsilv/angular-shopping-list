@@ -1,23 +1,17 @@
-import { Action } from '@ngrx/store';
+import { Action, createAction, props } from '@ngrx/store';
 import { ShoppingItem } from '../models/shopping-item.model';
 
 export enum ShoppingActionTypes {
-    ADD_ITEM = '[SHOPPING] Add Item',
-    DELETE_ITEM = '[SHOPPING] Delete Item',
+  ADD_ITEM = '[SHOPPING] Add Item',
+  DELETE_ITEM = '[SHOPPING] Delete Item',
 }
 
-export class AddItemAction implements Action {
-    readonly type = ShoppingActionTypes.ADD_ITEM;
+export const AddItemAction = createAction(
+  ShoppingActionTypes.ADD_ITEM,
+  props<ShoppingItem>()
+);
 
-    constructor(public payload: ShoppingItem){ }
-}
-
-export class DeleteItemAction implements Action {
-    readonly type = ShoppingActionTypes.DELETE_ITEM;
-
-    constructor(
-        public payload: string
-    ) {}
-}
-
-export type ShoppingAction = AddItemAction | DeleteItemAction;
+export const DeleteItemAction = createAction(
+  ShoppingActionTypes.DELETE_ITEM,
+  props<ShoppingItem>()
+);
