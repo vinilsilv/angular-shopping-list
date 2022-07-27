@@ -1,4 +1,4 @@
-import { Action, createAction, props } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 import { ShoppingItem } from '../models/shopping-item.model';
 
 export enum ShoppingActionTypes {
@@ -13,5 +13,5 @@ export const AddItemAction = createAction(
 
 export const DeleteItemAction = createAction(
   ShoppingActionTypes.DELETE_ITEM,
-  props<ShoppingItem>()
+  props<{id: string}>()
 );

@@ -34,4 +34,8 @@ export class AppComponent implements OnInit {
 
     this.newShoppingItem = { id: '', name: '' };
   }
+
+  deleteItem(idNum: string) {
+    this.store.dispatch(DeleteItemAction({id: idNum}));
+  }
 }
